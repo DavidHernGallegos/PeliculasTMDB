@@ -1,0 +1,43 @@
+﻿
+@model Movies
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	
+	
+}
+
+
+<link rel="stylesheet" href="~/css/Styles/CardsMovies.css">
+<script src="https://kit.fontawesome.com/33ec7cf483.js" crossorigin="anonymous"></script>
+
+	<div class="row">
+		@foreach (Movies movies in Model.ListMovies)
+		{
+
+		
+				<div class="col-3 m-5, p-3">
+					<div class="bx">
+						<img src=@movies.Poster alt="">
+						<div class="content">
+							<h3>@movies.Name</h3>
+							<h6><span>IMDB</span> <i class="bi bi-star-fill"></i> 9.0</h6>
+							@if(movies.respuesta == true)
+							{
+								<a href="@Url.Action("AgregarFavorito", "Movie" , new {idPelicula = movies.Id, r= true})" class="btn btn-info"><i class="fa-solid fa-heart"></i></a>
+							}
+							else
+							{
+							<a href="@Url.Action("AgregarFavorito", "Movie" , new {idPelicula = movies.Id, r= true})" class="btn btn-info"><i class="fa-regular fa-heart"></i></a>
+							}
+
+							
+						
+						</div>
+					</div>
+				</div>
+		}
+	</div>
+
+

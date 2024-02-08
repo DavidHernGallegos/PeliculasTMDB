@@ -1,0 +1,31 @@
+﻿@model Movies
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+
+}
+
+
+<link rel="stylesheet" href="~/css/Styles/CardsMovies.css">
+<div class="row">
+	@foreach (Movies movies in Model.ListMovies)
+	{
+
+
+		<div class="col-3 m-5, p-3">
+			<div class="bx">
+				<img src=@movies.Poster alt="">
+				<div class="content">
+					<h3>@movies.Name</h3>
+					<h6><span>IMDB</span> <i class="bi bi-star-fill"></i> 9.0</h6>
+
+					<a href="@Url.Action("QuitarFavorito", "Movie" , new {idPelicula = movies.Id})" class="btn btn-danger">Quitar Favoritos</a>
+
+				</div>
+			</div>
+		</div>
+
+	}
+</div>
